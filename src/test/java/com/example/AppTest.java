@@ -33,7 +33,7 @@ public class AppTest
         App.Employee e=new App.Employee("E103", "Aman", 20, "Finance", "Active", "High", true, "Normal");
 
         // Employee should not be Eligible
-        assertEquals("Not Eligible: Employee must be at least 21 years old", App.checkEligibility(e));
+        assertEquals("Not Eligible: Employee Must be At Least 21 Years Old", App.checkEligibility(e));
     }
 
     // Test for an Unauthorized Department
@@ -44,7 +44,7 @@ public class AppTest
         App.Employee e=new App.Employee("E104", "Rohan", 30, "Sales", "Active", "High", true, "Normal");
 
         // Employee should not be Eligible
-        assertEquals("Not Eligible: Unauthorized department", App.checkEligibility(e));
+        assertEquals("Not Eligible: Unauthorized Department", App.checkEligibility(e));
     }
 
     // Test for Inactive Employment Status
@@ -55,7 +55,7 @@ public class AppTest
         App.Employee e=new App.Employee("E105", "Karan", 25, "IT", "Inactive", "High", true, "Normal");
 
         // Employee should not be Eligible
-        assertEquals("Not Eligible: Employment status is not active", App.checkEligibility(e));
+        assertEquals("Not Eligible: Employment Status is Inactive", App.checkEligibility(e));
     }
 
     // Test for an Invalid Employee ID
@@ -66,7 +66,7 @@ public class AppTest
         App.Employee e=new App.Employee("E106", "Neha", 25, "HR", "Active", "High", false, "Normal");
 
         // Employee should not be Eligible
-        assertEquals("Not Eligible: Employee ID is not valid", App.checkEligibility(e));
+        assertEquals("Not Eligible: Employee ID is Invalid", App.checkEligibility(e));
     }
 
     // Test for Conditional Eligibility
@@ -92,12 +92,12 @@ public class AppTest
 
         // Verify that all failure reasons are reported
         assertEquals(
-                "Not Eligible: Invalid employee ID, " +
-                "Employee must be at least 21 years old, " +
-                "Unauthorized department, " +
-                "Employment status is not active, " +
-                "Employee ID is not valid, " +
-                "Insufficient security clearance for confidential access",
+                "Not Eligible: Invalid Employee ID, " +
+                "Employee Must be At Least 21 Years Old, " +
+                "Unauthorized Department, " +
+                "Employment Status is Inactive, " +
+                "Employee ID is Invalid, " +
+                "Insufficient Security Clearance for Confidential Access",
                 result);
     }
 
@@ -109,7 +109,7 @@ public class AppTest
         App.Employee e=new App.Employee(null, "Test", 25, "IT", "Active", "High", false, "Normal");
 
         // Both NULL/Invalid ID Conditions must be Detected
-        assertEquals("Not Eligible: Invalid employee ID, Employee ID is not valid", App.checkEligibility(e));
+        assertEquals("Not Eligible: Invalid Employee ID, Employee ID is Invalid", App.checkEligibility(e));
     }
 
     // Test for Multiple Individual Failures
@@ -120,6 +120,6 @@ public class AppTest
         App.Employee e=new App.Employee("E109", "Test", 25, "Marketing", "Inactive","High",true,"Normal");
 
         // Both Failure Reasons should be Reported
-        assertEquals("Not Eligible: Unauthorized department, Employment status is not active", App.checkEligibility(e));
+        assertEquals("Not Eligible: Unauthorized Department, Employment Status is Inactive", App.checkEligibility(e));
     }
 }
